@@ -4,4 +4,9 @@ if (true) {
 }
 
 console.log('x = ', x); // not error
-console.log('y = ', y); // error
+// console.log('y = ', y); // error
+
+const z = 3; // must give initial value
+// z = 4; // error - you cannot reassign
+
+const INR_TO_USD = 83.10;

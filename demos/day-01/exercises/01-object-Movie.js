@@ -19,5 +19,19 @@ const sholay = {
     boxOfficeCollection: {
         value: 20,
         units: "crore"
+    },
+    addToCast(newMember) {
+        // push is an array method that adds the item to the end of the array
+        this.cast.push(newMember);
+    },
+    addToCollection(amountInCrores) {
+        this.boxOfficeCollection.value += amountInCrores;
     }
-}
+};
+
+sholay.addToCast('Hema');
+sholay.addToCast('Jaya');
+
+sholay.addToCollection(15);
+
+console.log(sholay);

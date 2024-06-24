@@ -1,5 +1,6 @@
-'use strict';
+'use strict'; // "use strict" directive
 
+// Enabling strict mode of execution results in this line throwing an error on execution
 x = 1; // please don't do this - ALWAYS creates global variables
 
 function f() {

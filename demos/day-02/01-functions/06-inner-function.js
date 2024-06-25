@@ -1,16 +1,21 @@
-// you can create a function anywhere
-const axios = require('axios');
+function authorize(allowedRoles) {
+    function isUserAuthorized(user) {
+        return allowedRoles.includes(user.role);
+    }
 
-// method = 'get' | 'post' | 'put' | ...
-async function makeRequest(method, url, data) {
-    // axios.get | axios.post | axios.put | ...
-    const response = await axios[method](url, data);
-    return response.data;
+    return isUserAuthorized; // you are returning the inner function
 }
 
-async function getWorkshops() {
-    const data = await makeRequest('get', `https://workshops-server.onrender.com/workshops`)
-    console.log(data);
-}
+const authorizeAdminCustomer = authorize(['admin', 'customer']);
+const result = authorizeAdminCustomer({
+    name: 'John',
+    role: 'customer'
+});
+console.log(result);
 
-getWorkshops();
+const authorizeStore = authorize(['store_keeper', 'inventory_manager']);
+const result2 = authorizeStore({
+    name: 'Jane',
+    role: 'store_keeper'
+});
+console.log(result2);

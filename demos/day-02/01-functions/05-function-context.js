@@ -22,6 +22,8 @@ const jonathan = {
     }
 };
 
+// jonathan = {} // with let we can do this, but not with const
+
 const jane = {
     "first name": 'Jane',
     age: 28,

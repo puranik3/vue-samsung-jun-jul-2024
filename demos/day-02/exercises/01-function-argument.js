@@ -4,5 +4,18 @@
 // function square(x) { return x * x };
 // function cube(x) { return x * x * x };
 
-// console.log(sum(2, 3, square)); // prints 13 
-// console.log(sum(2, 3, cube)); // prints 35
+// console.log(sum(square, 2, 3)); // prints 13 
+// console.log(sum(cube, 2, 3)); // prints 35
+
+function sum(transform, ...all) {
+    let result = 0;
+
+    for (let i = 0; i < all.length; ++i) {
+        result += transform(all[i])
+    }
+
+    return result;
+}
+
+console.log(sum(x => x * x, 2, 3));
+console.log(sum(x => x ** 3, 2, 3));

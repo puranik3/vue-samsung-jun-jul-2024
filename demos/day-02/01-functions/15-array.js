@@ -26,3 +26,4 @@ const newPrimes = primes.slice();
 newPrimes.push(23);
 console.log(newPrimes); // has 23
 console.log(primes); // it does not have 23
+

@@ -1,3 +1,4 @@
+// i
 function authorize(allowedRoles) {
     function isUserAuthorized(user) {
         return allowedRoles.includes(user.role);

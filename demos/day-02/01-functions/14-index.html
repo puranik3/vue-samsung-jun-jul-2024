@@ -1,0 +1,20 @@
+<!-- ! + Enter -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn-click">Click me</button>
+
+        <script>
+            // DOM node is the object corresponding to the HTML element
+            const buttonEl = document.getElementById("btn-click");
+            buttonEl.addEventListener("click", function () {
+                console.log("do what we wold like to do on button click");
+            });
+        </script>
+    </body>
+</html>

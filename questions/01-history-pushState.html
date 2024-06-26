@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>History pushState</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script>
+            function showHome() {
+                document.querySelector("#root").innerHTML =
+                    "<button>Start</button>";
+
+                document
+                    .querySelector("button")
+                    .addEventListener("click", function () {
+                        history.pushState(null, "", "/form");
+
+                        showForm();
+                    });
+            }
+            // displays UI for the submit URL
+            function showSubmit() {
+                document.querySelector("#root").innerText =
+                    "Your data is saved";
+            }
+
+            function showForm(data) {
+                console.log("data = ", data);
+
+                document.querySelector("#root").innerHTML = `<form>
+                    <label for="name">Your name</label>
+                    <input type="text" name="name" id="name" />
+
+                    <button>Submit</button>
+                </form>`;
+
+                document
+                    .querySelector("form")
+                    .addEventListener("submit", function (event) {
+                        event.preventDefault();
+
+                        history.pushState(
+                            {
+                                name: document.querySelector("#name").value,
+                            },
+                            "",
+                            "/submit"
+                        ); // the URL changes, but there is no request sent to the server
+
+                        showSubmit();
+                    });
+
+                if (data) {
+                    document.querySelector("#name").value = data.name;
+                }
+            }
+
+            window.addEventListener("popstate", function (event) {
+                if (window.location.pathname === "/submit") {
+                    showSubmit();
+                }
+
+                if (window.location.pathname === "/form") {
+                    showForm(event.state);
+                }
+            });
+
+            showHome();
+        </script>
+    </body>
+</html>

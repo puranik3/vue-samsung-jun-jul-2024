@@ -38,10 +38,32 @@ const persons = [
     }
 ];
 
-// Find all persons whose are 35 years or older 
+// Find all persons whose age is 35 years or older 
+// filter()
 
 // Find a person who has at least 3 email ids 
+// find()
 
 // Find the sum of salaries for all persons 
+// reduce()
 
-// Get a list of users along with their first email id.The result should be an array like this. 
+// Get a list of users along with their first email id.The result should be an array like this.
+// map()
+// [
+//     {
+//         name: 'John',
+//         email: 'john@gmail.com'
+//     },
+//     {
+//         name: 'Jane',
+//         email: 'jane@gmail.com'
+//     },
+//     {
+//         name: 'Mark',
+//         email: 'mark@gmail.com'
+//     },
+//     {
+//         name: 'Mary',
+//         email: 'mary@gmail.com'
+//     }
+// ]; 

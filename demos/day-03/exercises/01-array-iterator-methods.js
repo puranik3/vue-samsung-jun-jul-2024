@@ -40,12 +40,17 @@ const persons = [
 
 // Find all persons whose age is 35 years or older 
 // filter()
+const personsOlderThan35 = persons.filter(person => person.age >= 35);
+console.log(personsOlderThan35)
 
 // Find a person who has at least 3 email ids 
 // find()
+const firstPersonWithAtLeast3EmailIds = persons.find(person => person.emails.length >= 3);
+console.log(firstPersonWithAtLeast3EmailIds);
 
 // Find the sum of salaries for all persons 
 // reduce()
+persons.reduce((acc, person) => acc + person.salary, 0);
 
 // Get a list of users along with their first email id.The result should be an array like this.
 // map()
@@ -66,4 +71,11 @@ const persons = [
 //         name: 'Mary',
 //         email: 'mary@gmail.com'
 //     }
-// ]; 
+// ];
+const personDetails = persons.map(person => {
+    return {
+        name: person.name,
+        email: person.emails[0]
+    }
+});
+console.log(personDetails);

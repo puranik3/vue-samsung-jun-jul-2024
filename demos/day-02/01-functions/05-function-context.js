@@ -19,6 +19,15 @@ const jonathan = {
     },
     celebrateBirthday(increaseBy) {
         this.age += increaseBy;
+    },
+    changeAddress(city, pinCode) {
+        if (city != undefined) {
+            this.address.city = city;
+        }
+
+        if (pinCode !== undefined) {
+            this.address.pinCode = pinCode;
+        }
     }
 };
 
@@ -44,3 +53,16 @@ console.log(jonathan);
 // .call() calls the underlying function jonathan.celebrateBirthday, but with a different context ("this")
 jonathan.celebrateBirthday.call(jane, 5); // this -> jane, changeBy -> 5
 console.log(jane);
+
+// jonathan.changeAddress.call(jane, 'Mumbai', 400050);
+// console.log(jane);
+
+jonathan.changeAddress.apply(jane, [undefined, 560050]);
+console.log(jane);
+
+const changeJohnPinCode = jonathan.changeAddress.bind(jonathan, 'Mumbai');
+changeJohnPinCode(400020);
+console.log(jonathan);
+
+changeJohnPinCode(400010);
+console.log(jonathan);

@@ -13,14 +13,19 @@
                 document.querySelector("#root").innerHTML =
                     "<button>Start</button>";
 
+                const initialFormValues = {
+                    name: "Jonathan",
+                };
+
                 document
                     .querySelector("button")
                     .addEventListener("click", function () {
-                        history.pushState(null, "", "/form");
+                        history.pushState(initialFormValues, "", "/form");
 
-                        showForm();
+                        showForm(initialFormValues);
                     });
             }
+
             // displays UI for the submit URL
             function showSubmit() {
                 document.querySelector("#root").innerText =
@@ -59,8 +64,10 @@
             }
 
             window.addEventListener("popstate", function (event) {
+                console.log("event.state =", event.state);
+
                 if (window.location.pathname === "/submit") {
-                    showSubmit();
+                    showSubmit(event.state);
                 }
 
                 if (window.location.pathname === "/form") {

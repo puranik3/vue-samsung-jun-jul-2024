@@ -10,9 +10,7 @@ function sum(x, y) {
                     return;
                 }
 
-                // console.log('inner function executing...');
-                // return x + y; // returned value goes to Node js / browser
-                resolve(x + y); // I am done. Here is the result.
+                resolve(x + y);
             },
             3000
         );
@@ -31,15 +29,12 @@ function multiply(x, y) {
     });
 };
 
-// Any Promise object has 2 methods - then(), catch()
-const promise = sum(12, 13);
-
 // the callback passed to then() is called ONLY if the promise resolves, and the resolved value is passed to it
-promise
+sum(12, 13)
     .then((result1) => {
         console.log(result1);
 
-        return sum(result1, 14);
+        return sum(result1, 'hello');
     }) // p2
     .then((result2) => {
         console.log(result2);
@@ -53,13 +48,7 @@ promise
     })
     .then((result4) => {
         console.log(result4);
+    })
+    .catch(error => {
+        console.log(error.message);
     });
-
-
-// .then((result2) => {
-//     console.log(result2);
-
-//     multiply(result2, 2).then((result3) => {
-//         console.log(result3);
-//     });
-// });

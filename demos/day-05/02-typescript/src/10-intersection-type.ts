@@ -12,3 +12,5 @@ let elonsTruckX : FlyingTruck = {
     numWheels: 20,
     numWings: 4
 }
+
+export {}
